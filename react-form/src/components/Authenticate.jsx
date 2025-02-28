@@ -30,6 +30,7 @@ export default function Authenticate({token}) {
             }
             const result = await response.json()
             console.log("Response data:", result)
+            setError(null)
             setSuccessMessage(`Token authenticated successfully ${result.success}`)
             console.log(`Token authenticated successfully, ${result.success}`)   
         }

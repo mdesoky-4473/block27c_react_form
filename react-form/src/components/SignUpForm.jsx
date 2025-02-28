@@ -13,8 +13,9 @@ export default function SignUpForm({setToken}) {
            // Validate inputs 
         if (!username.trim() || !password.trim()) {
         setError("Username and password are required.");
+        setToken(null); // Clear the token in the parent component
         return;
-    }
+        }
  
         // console.log("Hello 👋");
         // console.log(e.target);
