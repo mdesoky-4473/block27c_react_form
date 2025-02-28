@@ -5,6 +5,7 @@ export default function Authenticate({token}) {
 
     const [error, setError] = useState(null)
     const [successMessage, setSuccessMessage] = useState(null)
+    const [userData, setUserData] = useState(null)
     
     async function handleClick(c) {
         c.preventDefault() 
@@ -32,7 +33,8 @@ export default function Authenticate({token}) {
             console.log("Response data:", result)
             setError(null)
             setSuccessMessage(`Token authenticated successfully ${result.success}`)
-            console.log(`Token authenticated successfully, ${result.success}`)   
+            console.log(`Token authenticated successfully, ${result.success}`) 
+            setUserData(result.data);  
         }
         catch (error) {
             setError(`An error occurred while authenticating: ${error.message}`)
@@ -48,7 +50,13 @@ export default function Authenticate({token}) {
 
             <button onClick={handleClick}>Authenticate Token</button>
 
-            {error && <p style={{ color: "blue" }}>{error}</p>}
+            {error && <p className="error-message" style={{ color: "blue" }}>{error}</p>}
+
+            {userData && (
+                <div>
+                    <h3 className="success-message">Welcome, {userData.username}!</h3>  {/* Display username */}
+                </div>
+            )}
 
          </div>
          
