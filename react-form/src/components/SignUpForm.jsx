@@ -16,6 +16,12 @@ export default function SignUpForm({setToken}) {
         setToken(null); // Clear the token in the parent component
         return;
         }
+
+        // Basic Validation: Ensure username is at least 8 characters
+        // if (username.length < 8) {
+        //     setError("Username must be at least 8 characters long.");
+        //     return;
+        // }
  
         // console.log("Hello 👋");
         // console.log(e.target);
